@@ -17,14 +17,15 @@ public class Course {
     @Column(name="title")
     private String title;
 
-    @ManyToOne
-    @JoinColumn(name="company_id", nullable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name="company_id")
+//    @JoinColumn(name="company_id", nullable = false)
     private CourseCompany company;
 
     @Column(name="price")
     private float price;
 
     @Column(name="date_purchased")
-    private long datePurchased;
+    private int date_purchased;
 
 }
