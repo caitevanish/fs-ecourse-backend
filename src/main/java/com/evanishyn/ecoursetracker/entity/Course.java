@@ -14,6 +14,10 @@ public class Course {
     @Column(name="id")
     private int id;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name="user_id")
+    private User user;
+
     @Column(name="title")
     private String title;
 
