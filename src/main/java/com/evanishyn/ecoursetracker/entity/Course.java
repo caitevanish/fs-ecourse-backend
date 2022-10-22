@@ -3,6 +3,7 @@ package com.evanishyn.ecoursetracker.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name="course")
@@ -12,7 +13,7 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Integer id;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="user_id")
@@ -27,7 +28,7 @@ public class Course {
     private CourseCompany company;
 
     @Column(name="price")
-    private float price;
+    private BigDecimal price;
 
     @Column(name="date_purchased")
     private int date_purchased;
